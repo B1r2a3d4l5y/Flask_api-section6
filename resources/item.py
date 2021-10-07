@@ -17,7 +17,7 @@ class Item(Resource):
 
     @jwt_required()
     def get(self, name):
-        item = self.find_by_name(name)
+        item = ItemModel.find_by_name(name)
         if item:
             return item.json()
         return {"message": "Item not found"}, 404
@@ -26,6 +26,7 @@ class Item(Resource):
 
     def post(self, name):
         if ItemModel.find_by_name(name):
+    
             return {"message": "An item with name '{}' already exits".format(name)}, 400
 
         data = Item.parser.parse_args()
@@ -37,11 +38,6 @@ class Item(Resource):
         except:
             return {"message":"An error has occured inserting the item" }, 500
         return item.json(), 201
-        
-
-        return item, 201
-  
-
 
     
     def delete(self, name):
