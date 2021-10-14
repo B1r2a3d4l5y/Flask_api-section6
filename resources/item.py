@@ -25,7 +25,28 @@ class Item(Resource):
    
 
     def post(self, name):
-        if ItemModel.find_by_name(name):
+        if ItemModel.find_by_name(name): error {
+	"resource": "/c:/Users/User/Desktop/section 6/code/resources/item.py",
+	"owner": "_generated_diagnostic_collection_name_#1",
+	"code": {
+		"value": "reportUndefinedVariable",
+		"target": {
+			"$mid": 1,
+			"external": "https://github.com/microsoft/pylance-release/blob/main/DIAGNOSTIC_SEVERITY_RULES.md#diagnostic-severity-rules",
+			"path": "/microsoft/pylance-release/blob/main/DIAGNOSTIC_SEVERITY_RULES.md",
+			"scheme": "https",
+			"authority": "github.com",
+			"fragment": "diagnostic-severity-rules"
+		}
+	},
+	"severity": 4,
+	"message": "\"ItemModel\" is not defined",
+	"source": "Pylance",
+	"startLineNumber": 24,
+	"startColumn": 12,
+	"endLineNumber": 24,
+	"endColumn": 21
+}
     
             return {"message": "An item with name '{}' already exits".format(name)}, 400
 
